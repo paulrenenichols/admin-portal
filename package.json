@@ -1,4 +1,8 @@
 {
   "name": "admin-portal",
-  "packageManager": "yarn@4.2.2"
+  "packageManager": "yarn@4.2.2",
+  "scripts": {
+    "start": "docker compose up -d",
+    "stop": "docker compose down"
+  }
 }
