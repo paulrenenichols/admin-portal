@@ -14,3 +14,4 @@
 
 #server
 services/server/dist/*
+services/server/.env
