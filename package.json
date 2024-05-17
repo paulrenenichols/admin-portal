@@ -12,6 +12,10 @@
   "scripts": {
     "start": "docker compose up -d",
     "stop": "docker compose down",
-    "server:dev": "yarn workspace server run start:dev"
+    "server:dev": "yarn workspace server run start:dev",
+    "format": "yarn prettier . --write"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }
