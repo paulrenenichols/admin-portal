@@ -14,9 +14,17 @@
     "stop": "docker compose down",
     "server:dev": "yarn workspace server run start:dev",
     "server:db:generate": "yarn workspace server run db:generate",
+    "server:db:migrate": "yarn workspace server run db:migrate",
+    "server:db:studio": "yarn workspace server run db:studio",
     "format": "yarn prettier . --write"
   },
   "devDependencies": {
-    "prettier": "^3.2.5"
+    "drizzle-kit": "^0.21.2",
+    "prettier": "^3.2.5",
+    "tsx": "^4.10.5"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.10",
+    "postgres": "^3.4.4"
   }
 }
