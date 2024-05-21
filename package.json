@@ -12,11 +12,13 @@
   "scripts": {
     "start": "docker compose up -d",
     "stop": "docker compose down",
+    "server:build": "yarn workspace server run build",
     "server:dev": "yarn workspace server run start:dev",
     "server:db:generate": "yarn workspace server run db:generate",
     "server:db:migrate": "yarn workspace server run db:migrate",
     "server:db:studio": "yarn workspace server run db:studio",
     "server:db:seed": "yarn workspace server run db:seed",
+    "server:db:clear": "yarn workspace server run db:clear",
     "format": "yarn prettier . --write"
   },
   "devDependencies": {

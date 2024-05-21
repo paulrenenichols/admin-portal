@@ -8,5 +8,5 @@ export default defineConfig({
     url: process.env.DATABASE_URL as string,
   },
   verbose: true,
-  string: true,
+  strict: true,
 });
