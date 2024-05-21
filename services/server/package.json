@@ -20,12 +20,15 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx drizzle/migrate.ts",
-    "db:studio": "drizzle-kit studio --port 3000"
+    "db:studio": "drizzle-kit studio --port 3000",
+    "db:seed": "tsx drizzle/seed.ts"
+
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
+    "csv-parse": "^5.5.6",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.30.10",
     "postgres": "^3.4.4",
