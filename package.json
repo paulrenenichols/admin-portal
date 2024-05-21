@@ -5,7 +5,7 @@
     "name": "Paul Rene Nichols",
     "email": "paul.rene.nichols@gmail.com"
   },
-  "packageManager": "yarn@4.2.2",
+  "packageManager": "yarn@4.2.2+sha512.c44e283c54e02de9d1da8687025b030078c1b9648d2895a65aab8e64225bfb7becba87e1809fc0b4b6778bbd47a1e2ab6ac647de4c5e383a53a7c17db6c3ff4b",
   "workspaces": [
     "services/*"
   ],
@@ -13,9 +13,19 @@
     "start": "docker compose up -d",
     "stop": "docker compose down",
     "server:dev": "yarn workspace server run start:dev",
+    "server:db:generate": "yarn workspace server run db:generate",
+    "server:db:migrate": "yarn workspace server run db:migrate",
+    "server:db:studio": "yarn workspace server run db:studio",
+    "server:db:seed": "yarn workspace server run db:seed",
     "format": "yarn prettier . --write"
   },
   "devDependencies": {
-    "prettier": "^3.2.5"
+    "drizzle-kit": "^0.21.2",
+    "prettier": "^3.2.5",
+    "tsx": "^4.10.5"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.10",
+    "postgres": "^3.4.4"
   }
 }
