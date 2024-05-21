@@ -1733,7 +1733,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.3.1":
+"@types/node@npm:*, @types/node@npm:^20.12.12":
   version: 20.12.12
   resolution: "@types/node@npm:20.12.12"
   dependencies:
@@ -6999,7 +6999,7 @@ __metadata:
     "@prisma/client": "npm:^5.14.0"
     "@types/express": "npm:^4.17.17"
     "@types/jest": "npm:^29.5.2"
-    "@types/node": "npm:^20.3.1"
+    "@types/node": "npm:^20.12.12"
     "@types/supertest": "npm:^6.0.0"
     "@typescript-eslint/eslint-plugin": "npm:^6.0.0"
     "@typescript-eslint/parser": "npm:^6.0.0"
