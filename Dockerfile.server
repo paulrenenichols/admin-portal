@@ -1,0 +1,22 @@
+FROM node:20.13.1-alpine AS base
+
+RUN corepack enable
+RUN corepack prepare yarn@stable --activate
+
+FROM base AS runner
+
+ENV SERVER_PATH=/services/server
+
+WORKDIR /app
+
+COPY yarn.lock .
+COPY package.json .
+COPY ./${SERVER_PATH} ./${SERVER_PATH}
+
+RUN yarn install
+
+EXPOSE 3000
+
+RUN yarn run server:build
+
+CMD ["yarn", "run", "server:start"]
