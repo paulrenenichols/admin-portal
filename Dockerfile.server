@@ -1,0 +1,43 @@
+FROM node:20.13.1-alpine AS base
+
+RUN corepack enable
+RUN corepack prepare yarn@stable --activate
+
+FROM base AS builder
+
+ENV SERVER_PATH=/services/server
+
+WORKDIR /app
+
+COPY yarn.lock .
+COPY package.json .
+COPY ./${SERVER_PATH} ./${SERVER_PATH}
+
+RUN yarn install
+
+RUN yarn run server:build
+
+RUN ls -alF /root/.yarn
+
+FROM base AS runner
+
+WORKDIR /app
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nestjs
+
+COPY --from=builder --chown=nestjs:nodejs /app/.pnp.cjs ./
+COPY --from=builder --chown=nestjs:nodejs /app/.yarn ./.yarn
+COPY --from=builder --chown=nestjs:nodejs /root/.yarn /root/.yarn
+COPY --from=builder --chown=nestjs:nodejs /app/services/server/dist/src ./dist
+
+RUN ls -alF /root/.yarn
+RUN ls -alF /root/.yarn/berry
+
+USER nestjs
+
+EXPOSE 3000
+
+ENV PORT 3000
+
+CMD ["node", "-r", "./.pnp.cjs", "dist/main.js"]
