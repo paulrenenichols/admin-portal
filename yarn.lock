@@ -2281,8 +2281,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin-portal@workspace:."
   dependencies:
-    "@nestjs/common": "npm:^10.0.0"
-    "@nestjs/core": "npm:^10.0.0"
     drizzle-kit: "npm:^0.21.2"
     drizzle-orm: "npm:^0.30.10"
     postgres: "npm:^3.4.4"
