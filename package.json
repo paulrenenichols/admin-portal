@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "start": "docker compose up -d",
+    "start:rebuild": "docker compose up --build -d",
     "stop": "docker compose down",
     "server:build": "yarn workspace server run build",
     "server:dev": "yarn workspace server run start:dev",
@@ -27,6 +28,8 @@
     "tsx": "^4.10.5"
   },
   "dependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
     "drizzle-orm": "^0.30.10",
     "postgres": "^3.4.4"
   }
