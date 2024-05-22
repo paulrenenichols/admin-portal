@@ -4,7 +4,9 @@ import fs from 'node:fs';
 import { parse } from 'csv-parse';
 import { CustomerTable } from './schema';
 
-const __dirname = new URL('.').pathname;
+const __dirname = new URL('.', import.meta.url).pathname;
+
+console.info(`${__dirname}/csv/customers.csv`);
 
 const processFile = async () => {
   const records = [];

@@ -15,3 +15,6 @@
 #server
 services/server/dist/*
 services/server/.env
+
+#database
+services/database/.env
