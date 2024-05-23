@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import { db } from './db';
 import fs from 'node:fs';
 import { parse } from 'csv-parse';
@@ -6,11 +5,9 @@ import { CustomerTable } from './schema';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
-console.info(`${__dirname}/csv/customers.csv`);
-
 const processFile = async () => {
   const records = [];
-  const parser = fs.createReadStream(`${__dirname}/../csv/customers.csv`).pipe(
+  const parser = fs.createReadStream(`${__dirname}../csv/customers.csv`).pipe(
     parse({
       // CSV options if any
     }),

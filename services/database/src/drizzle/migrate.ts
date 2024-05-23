@@ -1,11 +1,12 @@
-import 'dotenv/config';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import { migrate } from 'drizzle-orm/postgres-js/migrator';
 import postgres from 'postgres';
 
-console.log(process.env.DATABASE_URL);
+const dbUrl = process.env.DATABASE_URL || 'postgresql://postgres:example@localhost:5432/admin-portal';
 
-const migrationClient = postgres(process.env.DATABASE_URL, { max: 1 });
+console.log(`migrate ${dbUrl}`);
+
+const migrationClient = postgres(dbUrl, { max: 1 });
 const db = drizzle(migrationClient);
 
 async function main() {
