@@ -5,7 +5,7 @@ RUN corepack prepare yarn@stable --activate
 
 FROM base AS runner
 
-ENV SERVER_PATH=/services/server
+ENV SERVER_PATH=services/server
 
 WORKDIR /app
 

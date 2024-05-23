@@ -1,0 +1,24 @@
+FROM node:20.13.1-alpine AS base
+
+RUN corepack enable
+RUN corepack prepare yarn@stable --activate
+
+FROM base AS runner
+
+RUN echo "dbUrl ${DATABASE_URL}"
+
+ENV DATABASE_PATH=services/database
+
+WORKDIR /app
+
+COPY yarn.lock .
+COPY package.json .
+COPY ./${DATABASE_PATH} ./${DATABASE_PATH}
+
+RUN ls -alF
+RUN ls -alF services
+RUN ls -alF services/database
+
+RUN yarn install
+
+CMD ["yarn", "run", "database:init"]

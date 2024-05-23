@@ -1,7 +1,13 @@
 services:
-  db:
+  postgres:
     image: postgres
+    hostname: postgres
     restart: always
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     # set shared memory limit when using docker-compose
     shm_size: 128mb
     # or set shared memory limit when deploy via swarm stack
@@ -17,15 +23,26 @@ services:
       - botnet
     ports:
       - 5432:5432
+  database:
+    image: docker.io/paulrenenichols/database-setup
+    depends_on:
+      - postgres 
+    build:
+      context: .
+      dockerfile: Dockerfile.database
+    networks:
+      - botnet
+    environment:
+      DATABASE_URL: postgresql://postgres:example@postgres:5432/admin-portal
   server:
     image: docker.io/paulrenenichols/nest-api-server
     depends_on:
-      - db
+      - postgres
     build:
       context: .
       dockerfile: Dockerfile.server
     environment:
-      DATABASE_URL: postgresql://postgres:example@localhost:5432/admin-portal
+      DATABASE_URL: postgresql://postgres:example@postgres:5432/admin-portal
     networks:
       - botnet
     ports:

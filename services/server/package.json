@@ -18,12 +18,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "tsx drizzle/migrate.ts",
-    "db:studio": "drizzle-kit studio --port 3000",
-    "db:seed": "tsx drizzle/seed-database.ts",
-    "db:clear": "tsx drizzle/clear-database.ts"
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
