@@ -12,7 +12,8 @@
     "studio": "drizzle-kit studio",
     "seed": "tsx src/drizzle/utility/seed-database.ts",
     "clear": "tsx src/drizzle/utility/clear-database.ts",
-    "init": "yarn run migrate && yarn run seed"
+    "init": "yarn run migrate && yarn run seed",
+    "build": "yarn run tsc"
   },
   "dependencies": {
     "csv-parse": "^5.5.6",

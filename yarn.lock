@@ -6926,13 +6926,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postgres@npm:^3.4.4":
-  version: 3.4.4
-  resolution: "postgres@npm:3.4.4"
-  checksum: 10c0/5c01a1501a1cb8851d981b1949bffd0a0a82ac5fd8453c410fdf4d6c0f91d01e69a42b30da2d08a77a00d6ddac0ea6ce58a1aa0dd6bd3f76e9220b1176bdfe60
-  languageName: node
-  linkType: hard
-
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
@@ -7412,18 +7405,17 @@ __metadata:
     "@types/express": "npm:^4.17.17"
     "@types/jest": "npm:^29.5.2"
     "@types/node": "npm:^20.12.12"
+    "@types/pg": "npm:^8.11.6"
     "@types/supertest": "npm:^6.0.0"
     "@typescript-eslint/eslint-plugin": "npm:^6.0.0"
     "@typescript-eslint/parser": "npm:^6.0.0"
-    csv-parse: "npm:^5.5.6"
     dotenv: "npm:^16.4.5"
-    drizzle-kit: "npm:^0.21.2"
     drizzle-orm: "npm:^0.30.10"
     eslint: "npm:^8.42.0"
     eslint-config-prettier: "npm:^9.0.0"
     eslint-plugin-prettier: "npm:^5.0.0"
     jest: "npm:^29.5.0"
-    postgres: "npm:^3.4.4"
+    pg: "npm:^8.11.5"
     prettier: "npm:^3.0.0"
     reflect-metadata: "npm:^0.2.0"
     rxjs: "npm:^7.8.1"
