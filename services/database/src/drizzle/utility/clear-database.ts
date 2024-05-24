@@ -1,5 +1,5 @@
-import { db } from './db';
-import { CustomerTable } from './schema';
+import { db } from '../db';
+import { customers } from '../schema';
 
 (async () => {
   await db.delete(CustomerTable);
