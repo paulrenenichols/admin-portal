@@ -18,3 +18,4 @@ services/server/.env
 
 #database
 services/database/.env
+services/database/dist

@@ -4,8 +4,13 @@ import { CustomerService } from './customer.service';
 @Controller('customer')
 export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}
-  @Get()
+  @Get('/hello')
   getHelloCustomer(): string {
     return this.customerService.getCustomerHello();
+  }
+
+  @Get()
+  getAllCustomers(): string {
+    return this.customerService.getAllCustomers();
   }
 }

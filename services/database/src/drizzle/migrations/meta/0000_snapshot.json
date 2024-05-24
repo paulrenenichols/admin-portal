@@ -1,11 +1,11 @@
 {
-  "id": "1949c67c-0fc7-4d6f-8e21-b53a729dd0b9",
+  "id": "96eaa560-4e99-474d-b4b3-081958a5a742",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "6",
   "dialect": "postgresql",
   "tables": {
-    "public.customer": {
-      "name": "customer",
+    "public.customers": {
+      "name": "customers",
       "schema": "",
       "columns": {
         "id": {
@@ -15,20 +15,20 @@
           "notNull": true,
           "default": "gen_random_uuid()"
         },
-        "user_name": {
-          "name": "user_name",
+        "user": {
+          "name": "user",
           "type": "varchar(256)",
           "primaryKey": false,
           "notNull": false
         },
-        "company_name": {
-          "name": "company_name",
+        "company": {
+          "name": "company",
           "type": "varchar(256)",
           "primaryKey": false,
           "notNull": false
         },
-        "phone_number": {
-          "name": "phone_number",
+        "phone": {
+          "name": "phone",
           "type": "varchar(10)",
           "primaryKey": false,
           "notNull": false

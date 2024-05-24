@@ -1,13 +1,14 @@
-import { db } from './db';
+import { db } from '../db';
 import fs from 'node:fs';
 import { parse } from 'csv-parse';
-import { CustomerTable } from './schema';
+import { customers } from '../schema/schema';
 
 const __dirname = new URL('.', import.meta.url).pathname;
+console.log(`seed ${__dirname}`);
 
 const processFile = async () => {
   const records = [];
-  const parser = fs.createReadStream(`${__dirname}../csv/customers.csv`).pipe(
+  const parser = fs.createReadStream(`${__dirname}../../csv/customers.csv`).pipe(
     parse({
       // CSV options if any
     }),
@@ -24,10 +25,10 @@ const processFile = async () => {
   const recordsMinusHeader = records.slice(1);
   await Promise.all(recordsMinusHeader.map((record) => {
     const [userName, companyName, phoneNumber] = record;
-    return db.insert(CustomerTable).values({userName, companyName, phoneNumber});
+    return db.insert(customers).values({userName, companyName, phoneNumber});
   }));
 
-  const firstCustomer = await db.query.CustomerTable.findFirst();
+  const firstCustomer = await db.query.customers.findFirst();
   console.log(firstCustomer);
   process.exit();
 })();
