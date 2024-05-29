@@ -1,8 +1,17 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
   box-sizing: border-box;
+  font-size: 62.5%; /* default to 10px */
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
