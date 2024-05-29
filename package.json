@@ -22,6 +22,7 @@
     "database:seed": "yarn workspace database run seed",
     "database:clear": "yarn workspace database run clear",
     "database:init": "yarn workspace database run init",
+    "portal:dev": "yarn workspace portal run dev",
     "format": "yarn prettier . --write"
   },
   "devDependencies": {
