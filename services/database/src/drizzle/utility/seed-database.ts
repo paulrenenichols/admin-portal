@@ -24,8 +24,8 @@ const processFile = async () => {
   const records = await processFile();
   const recordsMinusHeader = records.slice(1);
   await Promise.all(recordsMinusHeader.map((record) => {
-    const [userName, companyName, phoneNumber] = record;
-    return db.insert(customers).values({userName, companyName, phoneNumber});
+    const [user, company, phone] = record;
+    return db.insert(customers).values({user, company, phone});
   }));
 
   const firstCustomer = await db.query.customers.findFirst();
