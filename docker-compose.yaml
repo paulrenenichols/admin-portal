@@ -26,7 +26,7 @@ services:
   database:
     image: docker.io/paulrenenichols/database-setup
     depends_on:
-      - postgres 
+      - postgres
     build:
       context: .
       dockerfile: Dockerfile.database

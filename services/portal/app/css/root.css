@@ -1,0 +1,118 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* default to 10px */
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 70px auto;
+  grid-template-areas: "nav" "content";
+  font-family: "Roboto", sans-serif;
+  background-color: #35353b;
+  color: #e9e9db;
+  margin: 0;
+}
+
+/* top nav */
+.top-nav {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  box-shadow: 0px 2px 4px hsl(330, 10%, 40%);
+  overflow: hidden;
+  grid-area: nav;
+  background-color: hsl(149, 10%, 30%);
+  color: hsl(332, 25%, 65%);
+}
+.top-nav h1 {
+  font-size: 3rem;
+  margin: 0;
+  padding: 15px;
+  text-shadow: 2px 2px 4px hsl(330, 30%, 20%);
+}
+
+.page-content {
+  grid-area: content;
+  overflow: scroll;
+}
+
+/* customer view */
+.customer-view {
+  display: grid;
+  grid-template-rows: 150px auto;
+  grid-template-areas: "customer-search" "customer-list";
+}
+
+/* customer search */
+.customer-search {
+  grid-area: customer-search;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+/* customer list */
+.customer-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: customer-list;
+}
+.customer-list table {
+  display: grid;
+  border-collapse: collapse;
+  grid-template-rows: 60px 60vh;
+  grid-template-areas: "table-head" "table-body";
+  width: 60%;
+}
+.customer-list thead {
+  grid-area: table-head;
+  position: sticky;
+  top: 0;
+  font-size: 2rem;
+  padding: 10px 0;
+  background-color: #61619a;
+  text-shadow: 2px 2px 4px hsl(60, 40%, 20%);
+}
+.customer-list tbody {
+  grid-area: table-body;
+  overflow: scroll;
+  font-size: 1.7rem;
+}
+.customer-list thead,
+tbody,
+tr {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  text-align: left;
+  grid-template-columns:
+    minmax(150px, 1fr)
+    minmax(150px, 1fr)
+    minmax(150px, 1fr);
+}
+.customer-list th,
+td {
+  padding: 10px;
+}
+.customer-list th:last-child {
+  border: 0;
+}
+.customer-list td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.customer-list tr:nth-child(odd) td {
+  background: #4e4e56;
+}

@@ -14,7 +14,7 @@
     "start:rebuild": "docker compose up --build -d",
     "stop": "docker compose down",
     "server:build": "yarn workspace server run build",
-    "server:dev": "yarn workspace server run start:dev",
+    "server:dev": "DATABASE_URL='postgresql://postgres:example@localhost:5432/admin-portal' yarn workspace server run start:dev",
     "server:start": "yarn workspace server run start",
     "database:generate": "yarn workspace database run generate",
     "database:migrate": "yarn workspace database run migrate",
@@ -22,6 +22,7 @@
     "database:seed": "yarn workspace database run seed",
     "database:clear": "yarn workspace database run clear",
     "database:init": "yarn workspace database run init",
+    "portal:dev": "yarn workspace portal run dev",
     "format": "yarn prettier . --write"
   },
   "devDependencies": {
