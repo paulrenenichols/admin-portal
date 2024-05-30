@@ -16,6 +16,10 @@ export const loader = async (args: LoaderArgs) => {
   return json({ customers });
 };
 
+function formatPhoneNumber(phoneNumber: string) {
+  return phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+}
+
 export default function Index() {
   const { customers } = useLoaderData<typeof LoaderArgs>();
 
@@ -36,7 +40,7 @@ export default function Index() {
               <tr key={customer.id}>
                 <td>{customer.user}</td>
                 <td>{customer.company}</td>
-                <td>{customer.phone}</td>
+                <td>{formatPhoneNumber(customer.phone)}</td>
               </tr>
             ))}
           </tbody>
