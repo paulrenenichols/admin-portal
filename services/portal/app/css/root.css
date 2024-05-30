@@ -29,17 +29,16 @@ body {
   position: sticky;
   top: 0;
   width: 100vw;
-  box-shadow: 0px 2px 4px hsl(330, 10%, 40%);
+  box-shadow: 0px 3px 4px #e9e9db;
   overflow: hidden;
   grid-area: nav;
-  background-color: hsl(149, 10%, 30%);
-  color: hsl(332, 25%, 65%);
+  background-color: #61619a;
 }
 .top-nav h1 {
   font-size: 3rem;
   margin: 0;
   padding: 15px;
-  text-shadow: 2px 2px 4px hsl(330, 30%, 20%);
+  text-shadow: 2px 2px 4px hsl(60, 40%, 20%);
 }
 
 /* page content */
