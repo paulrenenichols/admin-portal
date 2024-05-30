@@ -42,9 +42,29 @@ body {
   text-shadow: 2px 2px 4px hsl(330, 30%, 20%);
 }
 
+/* page content */
 .page-content {
   grid-area: content;
   overflow: scroll;
+}
+
+/* sort buttons */
+.sort-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sort-buttons button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e9e9db;
+}
+.sort-buttons button:hover {
+  color: hsl(332, 50%, 65%);
+  cursor: pointer;
 }
 
 /* customer view */
@@ -101,6 +121,11 @@ tr {
     minmax(150px, 1fr)
     minmax(150px, 1fr)
     minmax(150px, 1fr);
+}
+.customer-list th {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .customer-list th,
 td {

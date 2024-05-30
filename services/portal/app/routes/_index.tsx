@@ -3,6 +3,7 @@ import { LoaderArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getAllCustomers } from "~/data/customers";
 import { json } from "@remix-run/node";
+import { SortButtons } from "~/components/buttons/sort-buttons";
 
 export const meta: MetaFunction = () => {
   return [
@@ -30,8 +31,14 @@ export default function Index() {
         <table>
           <thead>
             <tr>
-              <th>{"User"}</th>
-              <th>{"Company"}</th>
+              <th>
+                {"User"}
+                <SortButtons onClickDown={() => {}} onClickUp={() => {}} />
+              </th>
+              <th>
+                {"Company"}
+                <SortButtons onClickDown={() => {}} onClickUp={() => {}} />
+              </th>
               <th>{"Phone"}</th>
             </tr>
           </thead>
