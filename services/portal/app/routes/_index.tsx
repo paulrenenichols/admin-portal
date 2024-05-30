@@ -33,7 +33,7 @@ export default function Index() {
           </thead>
           <tbody>
             {customers.map((customer) => (
-              <tr>
+              <tr key={customer.id}>
                 <td>{customer.user}</td>
                 <td>{customer.company}</td>
                 <td>{customer.phone}</td>
