@@ -16,22 +16,29 @@ export const loader = async (args: LoaderArgs) => {
   return json({ customers });
 };
 
-
 export default function Index() {
   const { customers } = useLoaderData<typeof LoaderArgs>();
 
   return (
-    <div>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        {customers.map((customer) => (
-          <li key={customer.id}>
-            <span>{customer.user}</span>
-            <span>{customer.company}</span>
-            <span>{customer.phone}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <section className="customer-list">
+      <table>
+        <thead>
+          <tr>
+            <th>{"User"}</th>
+            <th>{"Company"}</th>
+            <th>{"Phone"}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {customers.map((customer) => (
+            <tr>
+              <td>{customer.user}</td>
+              <td>{customer.company}</td>
+              <td>{customer.phone}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
   );
 }

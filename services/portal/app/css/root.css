@@ -3,7 +3,9 @@ html {
   box-sizing: border-box;
   font-size: 62.5%; /* default to 10px */
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -13,5 +15,72 @@ body {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+  background-color: #35353b;
+  color: #e9e9db;
+  margin: 0;
+}
+
+/* top nav */
+.top-nav {
+  position: sticky;
+  top: 0;
+  border-bottom: 2px solid #e9e9db;
+  width: 100vw;
+  box-shadow: 0 4px 2px hsl(330, 17%, 50%);
+  overflow: hidden;
+}
+.top-nav h1 {
+  font-size: 3rem;
+  margin: 0;
+  padding: 15px;
+  text-shadow: 1px 1px 1px hsl(330, 17%, 50%);
+}
+
+/* customer list */
+.customer-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  height: 75%;
+  overflow: scroll;
+}
+.customer-list table {
+  display: grid;
+  border-collapse: collapse;
+  min-width: 65%;
+  grid-template-columns:
+    minmax(150px, 1fr)
+    minmax(150px, 1fr)
+    minmax(150px, 1fr);
+}
+.customer-list thead,
+tbody,
+tr {
+  display: contents;
+}
+.customer-list th,
+td {
+  padding: 7px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.customer-list th {
+  position: sticky;
+  top: 0;
+  text-align: left;
+  font-weight: normal;
+  font-size: 2rem;
+}
+.customer-list th:last-child {
+  border: 0;
+}
+.customer-list td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.customer-list tr:nth-child(even) td {
+  background: #4e4e56;
 }
