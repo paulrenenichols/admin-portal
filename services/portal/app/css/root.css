@@ -28,17 +28,18 @@ body {
 .top-nav {
   position: sticky;
   top: 0;
-  border-bottom: 2px solid #e9e9db;
   width: 100vw;
-  box-shadow: 0 4px 2px hsl(330, 17%, 50%);
+  box-shadow: 0px 2px 4px hsl(330, 10%, 40%);
   overflow: hidden;
   grid-area: nav;
+  background-color: hsl(149, 10%, 30%);
+  color: hsl(332, 25%, 65%);
 }
 .top-nav h1 {
   font-size: 3rem;
   margin: 0;
   padding: 15px;
-  text-shadow: 1px 1px 1px hsl(330, 17%, 50%);
+  text-shadow: 2px 2px 4px hsl(330, 30%, 20%);
 }
 
 .page-content {
@@ -81,6 +82,8 @@ body {
   top: 0;
   font-size: 2rem;
   padding: 10px 0;
+  background-color: #61619a;
+  text-shadow: 2px 2px 4px hsl(60, 40%, 20%);
 }
 .customer-list tbody {
   grid-area: table-body;
