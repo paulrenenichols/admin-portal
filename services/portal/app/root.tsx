@@ -37,7 +37,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <nav className="top-nav">
           <h1>{"Admin Portal"}</h1>
         </nav>
-        {children}
+        <div className="page-content">{children}</div>
         <ScrollRestoration />
         <Scripts />
       </body>

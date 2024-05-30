@@ -15,6 +15,9 @@ body {
 }
 
 body {
+  display: grid;
+  grid-template-rows: 70px auto;
+  grid-template-areas: "nav" "content";
   font-family: "Roboto", sans-serif;
   background-color: #35353b;
   color: #e9e9db;
@@ -29,6 +32,7 @@ body {
   width: 100vw;
   box-shadow: 0 4px 2px hsl(330, 17%, 50%);
   overflow: hidden;
+  grid-area: nav;
 }
 .top-nav h1 {
   font-size: 3rem;
@@ -37,42 +41,67 @@ body {
   text-shadow: 1px 1px 1px hsl(330, 17%, 50%);
 }
 
+.page-content {
+  grid-area: content;
+  overflow: scroll;
+}
+
+/* customer view */
+.customer-view {
+  display: grid;
+  grid-template-rows: 80px auto;
+  grid-template-areas: "customer-search" "customer-list";
+}
+
+/* customer search */
+.customer-search {
+  grid-area: customer-search;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
 /* customer list */
 .customer-list {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  height: 75%;
-  overflow: scroll;
+  grid-area: customer-list;
 }
 .customer-list table {
   display: grid;
   border-collapse: collapse;
-  min-width: 65%;
+  grid-template-rows: 60px 600px;
+  grid-template-areas: "table-head" "table-body";
+  width: 60%;
+}
+.customer-list thead {
+  grid-area: table-head;
+  position: sticky;
+  top: 0;
+  font-size: 2rem;
+  padding: 10px 0;
+}
+.customer-list tbody {
+  grid-area: table-body;
+  overflow: scroll;
+  font-size: 1.7rem;
+}
+.customer-list thead,
+tbody,
+tr {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  text-align: left;
   grid-template-columns:
     minmax(150px, 1fr)
     minmax(150px, 1fr)
     minmax(150px, 1fr);
 }
-.customer-list thead,
-tbody,
-tr {
-  display: contents;
-}
 .customer-list th,
 td {
-  padding: 7px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.customer-list th {
-  position: sticky;
-  top: 0;
-  text-align: left;
-  font-weight: normal;
-  font-size: 2rem;
+  padding: 10px;
 }
 .customer-list th:last-child {
   border: 0;
@@ -81,6 +110,6 @@ td {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.customer-list tr:nth-child(even) td {
+.customer-list tr:nth-child(odd) td {
   background: #4e4e56;
 }

@@ -20,25 +20,28 @@ export default function Index() {
   const { customers } = useLoaderData<typeof LoaderArgs>();
 
   return (
-    <section className="customer-list">
-      <table>
-        <thead>
-          <tr>
-            <th>{"User"}</th>
-            <th>{"Company"}</th>
-            <th>{"Phone"}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {customers.map((customer) => (
+    <div className="customer-view">
+      <section className="customer-search">{"search"}</section>
+      <section className="customer-list">
+        <table>
+          <thead>
             <tr>
-              <td>{customer.user}</td>
-              <td>{customer.company}</td>
-              <td>{customer.phone}</td>
+              <th>{"User"}</th>
+              <th>{"Company"}</th>
+              <th>{"Phone"}</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </section>
+          </thead>
+          <tbody>
+            {customers.map((customer) => (
+              <tr>
+                <td>{customer.user}</td>
+                <td>{customer.company}</td>
+                <td>{customer.phone}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    </div>
   );
 }
