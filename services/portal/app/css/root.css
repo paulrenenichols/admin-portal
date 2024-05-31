@@ -66,6 +66,20 @@ body {
   cursor: pointer;
 }
 
+/* delete-button */
+.delete-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e9e9db;
+}
+.delete-button:hover {
+  color: hsl(332, 50%, 65%);
+  cursor: pointer;
+}
+
 /* customer view */
 .customer-view {
   display: grid;
@@ -136,6 +150,10 @@ td {
 .customer-list td {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.customer-list td.phone-number {
+  display: flex;
+  justify-content: space-between;
 }
 .customer-list tr:nth-child(odd) td {
   background: #4e4e56;

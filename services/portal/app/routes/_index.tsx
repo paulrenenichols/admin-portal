@@ -1,9 +1,10 @@
 import type { MetaFunction } from "@remix-run/node";
 import { LoaderArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getAllCustomers, Customer } from "~/data/customers";
+import { getAllCustomers, Customer, deleteCustomer } from "~/data/customers";
 import { json } from "@remix-run/node";
 import { SortButtons } from "~/components/buttons/sort-buttons";
+import { DeleteButton } from "~/components/buttons/delete-button";
 import { useMemo, useState } from "react";
 
 export const meta: MetaFunction = () => {
@@ -84,7 +85,6 @@ export default function Index() {
     if (sortBy === "none" || sortOrder === "none") {
       return [...customers];
     }
-    console.log(`useMemo: sortBy ${sortBy} sortOrder ${sortOrder}`);
     if (sortBy === "company") {
       return sortByCompany(customers, sortOrder);
     } else if (sortBy === "user") {
@@ -93,7 +93,6 @@ export default function Index() {
   }, [sortBy, sortOrder, customers]);
 
   const setSort = (sortBy: SortBy, sortOrder: SortOrder) => {
-    console.log(`setSort: sortBy ${sortBy} sortOrder ${sortOrder}`);
     setSortBy(sortBy);
     setSortOrder(sortOrder);
   };
@@ -127,7 +126,10 @@ export default function Index() {
               <tr key={customer.id}>
                 <td>{customer.user}</td>
                 <td>{customer.company}</td>
-                <td>{formatPhoneNumber(customer.phone)}</td>
+                <td className="phone-number">
+                  {formatPhoneNumber(customer.phone)}
+                  <DeleteButton onClick={() => deleteCustomer(customer.id)} />
+                </td>
               </tr>
             ))}
           </tbody>
