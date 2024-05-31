@@ -188,6 +188,9 @@ td {
   border-radius: 12px;
 }
 .customer-details .customer .customer-form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   width: 80px;
   height: 40px;
