@@ -170,6 +170,18 @@ td {
   display: flex;
   justify-content: space-between;
 }
+.customer-list td.phone-number a {
+  text-decoration: none;
+  color: #35353b;
+  background-color: #e9e9db;
+  padding: 2px 10px;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.customer-list td.phone-number a:hover {
+  background-color: hsl(332, 50%, 65%);
+}
 .customer-list tr:nth-child(odd) td {
   background: #4e4e56;
 }

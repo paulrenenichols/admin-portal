@@ -1,5 +1,5 @@
 import type { MetaFunction, LoaderArgs } from "@remix-run/node";
-import { useLoaderData, Outlet } from "@remix-run/react";
+import { useLoaderData, Outlet, NavLink } from "@remix-run/react";
 import { getAllCustomers, Customer, deleteCustomer } from "~/data/customers";
 import { json } from "@remix-run/node";
 import { SortButtons } from "~/components/buttons/sort-buttons";
@@ -77,6 +77,7 @@ export default function Index() {
                   <td>{customer.company}</td>
                   <td className="phone-number">
                     {formatPhoneNumber(customer.phone)}
+                    <NavLink to={`customer/$${customer.id}`}>{"View"}</NavLink>
                   </td>
                 </tr>
               ))}
