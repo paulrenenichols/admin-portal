@@ -24,6 +24,16 @@ body {
   margin: 0;
 }
 
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 1.8rem;
+}
+
 /* top nav */
 .top-nav {
   position: sticky;
@@ -35,7 +45,6 @@ body {
   background-color: #61619a;
 }
 .top-nav h1 {
-  font-size: 3rem;
   margin: 0;
   padding: 15px;
   text-shadow: 2px 2px 4px hsl(60, 40%, 20%);
@@ -168,6 +177,13 @@ td {
 /* customer details */
 .customer-details {
   grid-area: customer-details;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 .customer-details .customer {
+  padding: 80px;
+  margin-top: 40px;
+  background-color: #4e4e56;
+  border-radius: 12px;
 }
