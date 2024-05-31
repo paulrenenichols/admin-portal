@@ -3,7 +3,6 @@ import { useLoaderData, Outlet } from "@remix-run/react";
 import { getAllCustomers, Customer, deleteCustomer } from "~/data/customers";
 import { json } from "@remix-run/node";
 import { SortButtons } from "~/components/buttons/sort-buttons";
-import { DeleteButton } from "~/components/buttons/delete-button";
 import { useMemo, useState } from "react";
 import {
   formatPhoneNumber,
@@ -78,7 +77,6 @@ export default function Index() {
                   <td>{customer.company}</td>
                   <td className="phone-number">
                     {formatPhoneNumber(customer.phone)}
-                    <DeleteButton onClick={() => deleteCustomer(customer.id)} />
                   </td>
                 </tr>
               ))}

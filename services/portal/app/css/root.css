@@ -6,6 +6,7 @@ html {
 *,
 *:before,
 *:after {
+  font-family: "Roboto", sans-serif;
   box-sizing: inherit;
 }
 
@@ -18,7 +19,6 @@ body {
   display: grid;
   grid-template-rows: 70px auto;
   grid-template-areas: "nav" "content";
-  font-family: "Roboto", sans-serif;
   background-color: #35353b;
   color: #e9e9db;
   margin: 0;
@@ -186,4 +186,15 @@ td {
   margin-top: 40px;
   background-color: #4e4e56;
   border-radius: 12px;
+}
+.customer-details .customer .customer-form button {
+  cursor: pointer;
+  width: 80px;
+  height: 40px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #4e4e56;
 }
