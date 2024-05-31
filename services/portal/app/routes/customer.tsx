@@ -77,7 +77,7 @@ export default function Index() {
                   <td>{customer.company}</td>
                   <td className="phone-number">
                     {formatPhoneNumber(customer.phone)}
-                    <NavLink to={`customer/$${customer.id}`}>{"View"}</NavLink>
+                    <NavLink to={`${customer.id}`}>{"View"}</NavLink>
                   </td>
                 </tr>
               ))}

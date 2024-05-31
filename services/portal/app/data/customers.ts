@@ -11,6 +11,12 @@ export async function getAllCustomers(): Promise<Customer[]> {
   return response.json();
 }
 
+export async function getCustomer(id: string): Promise<Customer> {
+  const response = await fetch(`http://localhost:3000/customer/${id}`);
+
+  return response.json();
+}
+
 export async function deleteCustomer(id: string): Promise<any> {
   return fetch(`http://localhost:3000/customer/${id}`, {
     method: "DELETE",

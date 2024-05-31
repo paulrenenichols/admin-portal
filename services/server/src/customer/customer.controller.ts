@@ -14,6 +14,11 @@ export class CustomerController {
     return this.customerService.getAllCustomers();
   }
 
+  @Get('/:id')
+  getCustomer(@Param('id') id: string): any {
+    return this.customerService.getCustomer(id);
+  }
+
   @Delete('/:id')
   deleteCustomer(@Param('id') id: string): any {
     return this.customerService.deleteCustomer(id);

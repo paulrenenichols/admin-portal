@@ -13,6 +13,13 @@ export class CustomerService {
     return db.query.customers.findMany();
   }
 
+  async getCustomer(id: string): Promise<any> {
+    const customerArray = await db.query.customers.findMany({
+      where: eq(customers.id, id),
+    });
+    return customerArray[0];
+  }
+
   deleteCustomer(id: string): any {
     return db.delete(customers).where(eq(customers.id, id));
   }

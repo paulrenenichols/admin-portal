@@ -1,13 +1,16 @@
-import { Form } from "@remix-run/react";
+import { Form, useLoaderData } from "@remix-run/react";
 import { formatPhoneNumber } from "~/utility";
+import { json } from "@remix-run/node";
+
+import { getCustomer } from "../data/customers";
+
+export const loader = async ({ params }) => {
+  const customer = await getCustomer(params.customerId);
+  return json({ customer });
+};
 
 export default function CustomerDetails() {
-  const customer = {
-    id: "011",
-    user: "aurorawanderer",
-    company: "Cosmic Concepts",
-    phone: "4971865230",
-  };
+  const { customer } = useLoaderData<typeof loader>();
 
   return (
     <div className="customer">
@@ -21,7 +24,7 @@ export default function CustomerDetails() {
 
         <Form
           action="destroy"
-          method="post"
+          method="delete"
           onSubmit={(event) => {
             const response = confirm(
               "Please confirm you want to delete this record.",
