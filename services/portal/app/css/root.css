@@ -222,3 +222,7 @@ td {
   font-weight: 500;
   color: #4e4e56;
 }
+.customer-details .customer .customer-form button:hover {
+  background-color: hsl(332, 50%, 65%);
+  cursor: pointer;
+}
