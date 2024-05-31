@@ -1,6 +1,5 @@
-import type { MetaFunction } from "@remix-run/node";
-import { LoaderArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import type { MetaFunction, LoaderArgs } from "@remix-run/node";
+import { useLoaderData, Outlet } from "@remix-run/react";
 import { getAllCustomers, Customer, deleteCustomer } from "~/data/customers";
 import { json } from "@remix-run/node";
 import { SortButtons } from "~/components/buttons/sort-buttons";
@@ -100,41 +99,46 @@ export default function Index() {
   return (
     <div className="customer-view">
       <section className="customer-search">{"search"}</section>
-      <section className="customer-list">
-        <table>
-          <thead>
-            <tr>
-              <th>
-                {"User"}
-                <SortButtons
-                  onClickDown={() => setSort("user", "descending")}
-                  onClickUp={() => setSort("user", "ascending")}
-                />
-              </th>
-              <th>
-                {"Company"}
-                <SortButtons
-                  onClickDown={() => setSort("company", "descending")}
-                  onClickUp={() => setSort("company", "ascending")}
-                />
-              </th>
-              <th>{"Phone"}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {sortedCustomers.map((customer) => (
-              <tr key={customer.id}>
-                <td>{customer.user}</td>
-                <td>{customer.company}</td>
-                <td className="phone-number">
-                  {formatPhoneNumber(customer.phone)}
-                  <DeleteButton onClick={() => deleteCustomer(customer.id)} />
-                </td>
+      <div>
+        <section className="customer-list">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  {"User"}
+                  <SortButtons
+                    onClickDown={() => setSort("user", "descending")}
+                    onClickUp={() => setSort("user", "ascending")}
+                  />
+                </th>
+                <th>
+                  {"Company"}
+                  <SortButtons
+                    onClickDown={() => setSort("company", "descending")}
+                    onClickUp={() => setSort("company", "ascending")}
+                  />
+                </th>
+                <th>{"Phone"}</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+            </thead>
+            <tbody>
+              {sortedCustomers.map((customer) => (
+                <tr key={customer.id}>
+                  <td>{customer.user}</td>
+                  <td>{customer.company}</td>
+                  <td className="phone-number">
+                    {formatPhoneNumber(customer.phone)}
+                    <DeleteButton onClick={() => deleteCustomer(customer.id)} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+        <section className="customer-details">
+          <Outlet />
+        </section>
+      </div>
     </div>
   );
 }
