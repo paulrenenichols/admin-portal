@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Delete, Param } from '@nestjs/common';
 import { CustomerService } from './customer.service';
 
 @Controller('customer')
@@ -12,5 +12,10 @@ export class CustomerController {
   @Get()
   getAllCustomers(): string {
     return this.customerService.getAllCustomers();
+  }
+
+  @Delete('/:id')
+  deleteCustomer(@Param('id') id: string): any {
+    return this.customerService.deleteCustomer(id);
   }
 }
