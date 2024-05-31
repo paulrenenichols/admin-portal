@@ -47,7 +47,10 @@ export default function Index() {
 
   return (
     <div className="customer-page">
-      <section className="customer-search">{"search"}</section>
+      <section className="customer-search">
+        <h2>Search:</h2>
+        <input type="text" name="search" />
+      </section>
       <div className="customer-view">
         <section className="customer-list">
           <table>
