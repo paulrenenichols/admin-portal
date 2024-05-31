@@ -108,7 +108,7 @@ h3 {
 .customer-view {
   grid-area: customer-view;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-template-areas: "customer-list customer-details";
   gap: 30px;
   padding: 0 30px;
