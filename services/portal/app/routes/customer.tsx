@@ -1,9 +1,10 @@
 import type { MetaFunction, LoaderArgs } from "@remix-run/node";
-import { useLoaderData, Outlet, NavLink } from "@remix-run/react";
-import { getAllCustomers, Customer, deleteCustomer } from "~/data/customers";
 import { json } from "@remix-run/node";
+import { useLoaderData, Outlet, NavLink } from "@remix-run/react";
+import { useMemo, useState, FormEvent } from "react";
+import debounce from "lodash.debounce";
 import { SortButtons } from "~/components/buttons/sort-buttons";
-import { useMemo, useState } from "react";
+import { getAllCustomers, Customer } from "~/data/customers";
 import {
   formatPhoneNumber,
   sortByCompany,
@@ -25,31 +26,48 @@ export const loader = async (args: LoaderArgs) => {
 };
 
 export default function Index() {
-  const { customers } = useLoaderData<typeof LoaderArgs>();
   const [sortOrder, setSortOrder] = useState<SortOrder>("none");
   const [sortBy, setSortBy] = useState<SortBy>("none");
-
+  const { customers } = useLoaderData<typeof LoaderArgs>();
+  const [searchCustomers, setSearchCustomers] = useState<Customer[]>(customers);
   const sortedCustomers = useMemo(() => {
     if (sortBy === "none" || sortOrder === "none") {
-      return [...customers];
+      return [...searchCustomers];
     }
     if (sortBy === "company") {
-      return sortByCompany(customers, sortOrder);
+      return sortByCompany(searchCustomers, sortOrder);
     } else if (sortBy === "user") {
-      return sortByUser(customers, sortOrder);
+      return sortByUser(searchCustomers, sortOrder);
     }
-  }, [sortBy, sortOrder, customers]);
+  }, [sortBy, sortOrder, searchCustomers]);
 
   const setSort = (sortBy: SortBy, sortOrder: SortOrder) => {
     setSortBy(sortBy);
     setSortOrder(sortOrder);
   };
 
+  const onSearchChange = (event: FormEvent<HTMLInputElement>) => {
+    const searchText = event.target.value;
+    if (!searchText) {
+      setSearchCustomers(customers);
+    } else {
+      const filteredCustomers = [...customers].filter((customer: Customer) => {
+        return (
+          customer.company.toLowerCase().includes(searchText) ||
+          customer.user.toLowerCase().includes(searchText) ||
+          customer.phone.includes(searchText)
+        );
+      });
+      setSearchCustomers(filteredCustomers);
+    }
+  };
+  const debouncedOnSearchChange = debounce(onSearchChange, 500);
+
   return (
     <div className="customer-page">
       <section className="customer-search">
         <h2>Search:</h2>
-        <input type="text" name="search" />
+        <input type="text" name="search" onChange={debouncedOnSearchChange} />
       </section>
       <div className="customer-view">
         <section className="customer-list">

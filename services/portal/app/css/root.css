@@ -94,6 +94,7 @@ h3 {
   display: grid;
   grid-template-rows: 150px auto;
   grid-template-areas: "customer-search" "customer-view";
+  padding: 0 30px;
 }
 
 /* customer search */
@@ -101,7 +102,7 @@ h3 {
   grid-area: customer-search;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
 }
 .customer-search input {
@@ -120,7 +121,6 @@ h3 {
   grid-template-columns: 2fr 1fr;
   grid-template-areas: "customer-list customer-details";
   gap: 30px;
-  padding: 0 30px;
 }
 
 /* customer list */
@@ -148,7 +148,6 @@ h3 {
   font-size: 1.7rem;
 }
 .customer-list thead,
-tbody,
 tr {
   display: grid;
   grid-column: 1 / -1;
@@ -158,6 +157,9 @@ tr {
     minmax(150px, 1fr)
     minmax(150px, 1fr)
     minmax(150px, 1fr);
+}
+.customer-list tbody tr {
+  max-height: 40px;
 }
 .customer-list th {
   display: flex;
