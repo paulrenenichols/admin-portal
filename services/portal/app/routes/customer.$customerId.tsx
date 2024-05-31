@@ -1,4 +1,5 @@
 import { Form } from "@remix-run/react";
+import { formatPhoneNumber } from "~/utility";
 
 export default function CustomerDetails() {
   const customer = {
@@ -12,7 +13,7 @@ export default function CustomerDetails() {
     <div className="customer">
       <h2>{customer.user}</h2>
       <h3>{customer.company}</h3>
-      <h3>{customer.phone}</h3>
+      <h3>{formatPhoneNumber(customer.phone)}</h3>
     </div>
   );
 }
