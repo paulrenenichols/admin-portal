@@ -80,11 +80,11 @@ body {
   cursor: pointer;
 }
 
-/* customer view */
-.customer-view {
+/* customer page */
+.customer-page {
   display: grid;
   grid-template-rows: 150px auto;
-  grid-template-areas: "customer-search" "customer-list";
+  grid-template-areas: "customer-search" "customer-view";
 }
 
 /* customer search */
@@ -95,11 +95,18 @@ body {
   font-size: 4rem;
 }
 
+/* customer view */
+.customer-view {
+  grid-area: customer-view;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "customer-list customer-details";
+  gap: 30px;
+  padding: 0 30px;
+}
+
 /* customer list */
 .customer-list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   grid-area: customer-list;
 }
 .customer-list table {
@@ -107,7 +114,6 @@ body {
   border-collapse: collapse;
   grid-template-rows: 60px 60vh;
   grid-template-areas: "table-head" "table-body";
-  width: 60%;
 }
 .customer-list thead {
   grid-area: table-head;
@@ -157,4 +163,11 @@ td {
 }
 .customer-list tr:nth-child(odd) td {
   background: #4e4e56;
+}
+
+/* customer details */
+.customer-details {
+  grid-area: customer-details;
+}
+.customer-details .customer {
 }
