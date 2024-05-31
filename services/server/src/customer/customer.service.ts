@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { eq } from 'drizzle-orm';
+import { eq, ilike, or } from 'drizzle-orm';
 import { db } from '../database/db';
 import { customers } from '../database/schema';
 
@@ -11,6 +11,19 @@ export class CustomerService {
 
   getAllCustomers(): any {
     return db.query.customers.findMany();
+  }
+
+  searchCustomers(searchText: string): any {
+    return db
+      .select()
+      .from(customers)
+      .where(
+        or(
+          ilike(customers.phone, `%${searchText}%`),
+          ilike(customers.user, `%${searchText}%`),
+          ilike(customers.company, `%${searchText}%`),
+        ),
+      );
   }
 
   async getCustomer(id: string): Promise<any> {

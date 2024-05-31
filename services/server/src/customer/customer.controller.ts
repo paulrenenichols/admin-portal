@@ -14,6 +14,11 @@ export class CustomerController {
     return this.customerService.getAllCustomers();
   }
 
+  @Get('/search/:searchText')
+  searchCustomers(@Param('searchText') searchText: string): any {
+    return this.customerService.searchCustomers(searchText);
+  }
+
   @Get('/:id')
   getCustomer(@Param('id') id: string): any {
     return this.customerService.getCustomer(id);
