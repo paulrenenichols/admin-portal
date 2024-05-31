@@ -1,10 +1,20 @@
-import type { MetaFunction, LoaderArgs } from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { useLoaderData, Outlet, NavLink, useNavigate } from "@remix-run/react";
+import type {
+  MetaFunction,
+  LoaderFunctionArgs,
+  LoaderArgs,
+} from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
+import {
+  useLoaderData,
+  Outlet,
+  NavLink,
+  useNavigate,
+  useParams,
+} from "@remix-run/react";
 import { useMemo, useState, FormEvent } from "react";
 import debounce from "lodash.debounce";
 import { SortButtons } from "~/components/buttons/sort-buttons";
-import { getAllCustomers, Customer } from "~/data/customers";
+import { searchCustomers, Customer } from "~/data/customers";
 import {
   formatPhoneNumber,
   sortByCompany,
@@ -20,13 +30,17 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export const loader = async (args: LoaderArgs) => {
-  const customers = await getAllCustomers();
+export const loader = async ({ params }: LoaderFunctionArgs) => {
+  const { searchText } = params;
+  const customers = await searchCustomers(searchText);
+
   return json({ customers });
 };
 
 export default function Index() {
   const navigate = useNavigate();
+  const params = useParams();
+  const { searchText } = params;
 
   const [sortOrder, setSortOrder] = useState<SortOrder>("none");
   const [sortBy, setSortBy] = useState<SortBy>("none");
@@ -61,7 +75,12 @@ export default function Index() {
     <div className="customer-page">
       <section className="customer-search">
         <h2>Search:</h2>
-        <input type="text" name="search" onChange={debouncedOnSearchChange} />
+        <input
+          type="text"
+          name="search"
+          onChange={debouncedOnSearchChange}
+          placeholder={searchText}
+        />
       </section>
       <div className="customer-view">
         <section className="customer-list">

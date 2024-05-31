@@ -11,6 +11,14 @@ export async function getAllCustomers(): Promise<Customer[]> {
   return response.json();
 }
 
+export async function searchCustomers(searchText: string): Promise<Customer[]> {
+  const response = await fetch(
+    `http://localhost:3000/customer/search/${searchText}`,
+  );
+
+  return response.json();
+}
+
 export async function getCustomer(id: string): Promise<Customer> {
   const response = await fetch(`http://localhost:3000/customer/${id}`);
 
