@@ -5,6 +5,13 @@ import { json } from "@remix-run/node";
 import { SortButtons } from "~/components/buttons/sort-buttons";
 import { DeleteButton } from "~/components/buttons/delete-button";
 import { useMemo, useState } from "react";
+import {
+  formatPhoneNumber,
+  sortByCompany,
+  sortByUser,
+  SortBy,
+  SortOrder,
+} from "~/utility";
 
 export const meta: MetaFunction = () => {
   return [
@@ -16,63 +23,6 @@ export const meta: MetaFunction = () => {
 export const loader = async (args: LoaderArgs) => {
   const customers = await getAllCustomers();
   return json({ customers });
-};
-
-function formatPhoneNumber(phoneNumber: string) {
-  return phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
-}
-
-export type SortOrder = "ascending" | "descending" | "none";
-export type SortBy = "user" | "company" | "none";
-
-const sortByCompany = (customers: Customer[], sortOrder: SortOrder) => {
-  return customers.sort((customerA: Customer, customerB: Customer) => {
-    const sortValueA = customerA.company.toLowerCase();
-    const sortValueB = customerB.company.toLowerCase();
-    if (sortOrder === "ascending") {
-      if (sortValueA < sortValueB) {
-        return 1;
-      } else if (sortValueA > sortValueB) {
-        return -1;
-      } else {
-        return 0;
-      }
-    } else if (sortOrder === "descending") {
-      if (sortValueA > sortValueB) {
-        return 1;
-      } else if (sortValueA < sortValueB) {
-        return -1;
-      } else {
-        return 0;
-      }
-    }
-    return 0;
-  });
-};
-
-const sortByUser = (customers: Customer[], sortOrder: SortOrder) => {
-  return customers.sort((customerA: Customer, customerB: Customer) => {
-    const sortValueA = customerA.user.toLowerCase();
-    const sortValueB = customerB.user.toLowerCase();
-    if (sortOrder === "ascending") {
-      if (sortValueA < sortValueB) {
-        return 1;
-      } else if (sortValueA > sortValueB) {
-        return -1;
-      } else {
-        return 0;
-      }
-    } else if (sortOrder === "descending") {
-      if (sortValueA > sortValueB) {
-        return 1;
-      } else if (sortValueA < sortValueB) {
-        return -1;
-      } else {
-        return 0;
-      }
-    }
-    return 0;
-  });
 };
 
 export default function Index() {
