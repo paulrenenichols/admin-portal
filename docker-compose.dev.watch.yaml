@@ -34,19 +34,6 @@ services:
       - botnet
     environment:
       DATABASE_URL: postgresql://postgres:example@postgres:5432/admin-portal
-  server:
-    image: docker.io/paulrenenichols/nest-api-server
-    depends_on:
-      - postgres
-    build:
-      context: .
-      dockerfile: Dockerfile.server
-    environment:
-      DATABASE_URL: postgresql://postgres:example@postgres:5432/admin-portal
-    networks:
-      - botnet
-    ports:
-      - 3000:3000
 networks:
   botnet:
     driver: bridge

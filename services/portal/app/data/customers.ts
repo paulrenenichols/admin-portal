@@ -5,28 +5,28 @@ export type Customer = {
   readonly phone: string;
 };
 
+const apiServerUrl = process.env.API_SERVER_URL;
+
 export async function getAllCustomers(): Promise<Customer[]> {
-  const response = await fetch("http://localhost:3000/customer");
+  const response = await fetch(`${apiServerUrl}/customer`);
 
   return response.json();
 }
 
 export async function searchCustomers(searchText: string): Promise<Customer[]> {
-  const response = await fetch(
-    `http://localhost:3000/customer/search/${searchText}`,
-  );
+  const response = await fetch(`${apiServerUrl}/customer/search/${searchText}`);
 
   return response.json();
 }
 
 export async function getCustomer(id: string): Promise<Customer> {
-  const response = await fetch(`http://localhost:3000/customer/${id}`);
+  const response = await fetch(`${apiServerUrl}/customer/${id}`);
 
   return response.json();
 }
 
 export async function deleteCustomer(id: string): Promise<any> {
-  return fetch(`http://localhost:3000/customer/${id}`, {
+  return fetch(`${apiServerUrl}/customer/${id}`, {
     method: "DELETE",
   });
 }

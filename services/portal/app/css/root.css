@@ -54,6 +54,26 @@ h3 {
 .page-content {
   grid-area: content;
   overflow: scroll;
+  padding: 0 30px;
+}
+
+.index-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+.index-page .customer-link-button {
+  text-decoration: none;
+  color: #35353b;
+  background-color: #e9e9db;
+  padding: 2px 10px;
+  border-radius: 5px;
+  font-size: 3rem;
+  font-weight: 500;
+}
+.index-page .customer-link-button:hover {
+  background-color: hsl(332, 50%, 65%);
 }
 
 /* sort buttons */
@@ -94,7 +114,6 @@ h3 {
   display: grid;
   grid-template-rows: 150px auto;
   grid-template-areas: "customer-search" "customer-view";
-  padding: 0 30px;
 }
 
 /* customer search */
