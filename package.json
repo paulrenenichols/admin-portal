@@ -10,9 +10,9 @@
     "services/*"
   ],
   "scripts": {
-    "start": "docker compose up -d",
-    "start:rebuild": "docker compose up --build -d",
-    "stop": "docker compose down",
+    "start": "docker compose -f docker-compose.dev.yaml up -d",
+    "start:rebuild": "docker compose -f docker-compose.dev.yaml up --build",
+    "stop": "docker compose -f docker-compose.dev.yaml down",
     "server:build": "yarn workspace server run build",
     "server:dev": "DATABASE_URL='postgresql://postgres:example@localhost:5432/admin-portal' yarn workspace server run start:dev",
     "server:start": "yarn workspace server run start",
