@@ -47,6 +47,19 @@ services:
       - botnet
     ports:
       - 3000:3000
+  portal:
+    image: docker.io/paulrenenichols/portal-ui
+    depends_on:
+      - server
+    build:
+      context: .
+      dockerfile: Dockerfile.portal
+    environment:
+      API_SERVER_URL: http://server:3000
+    networks:
+      - botnet
+    ports:
+      - 5173:3000
 networks:
   botnet:
     driver: bridge

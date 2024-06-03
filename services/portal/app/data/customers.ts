@@ -6,7 +6,6 @@ export type Customer = {
 };
 
 const apiServerUrl = process.env.API_SERVER_URL;
-console.log(`apiServerUrl ${apiServerUrl}`);
 
 export async function getAllCustomers(): Promise<Customer[]> {
   const response = await fetch(`${apiServerUrl}/customer`);
