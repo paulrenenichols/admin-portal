@@ -1,8 +1,8 @@
-import { db } from '../db';
-import { customers } from '../schema';
+import { db } from "../db";
+import { customers } from "../schema";
 
 (async () => {
-  await db.delete(CustomerTable);
+  await db.delete(customers);
 
   const firstCustomer = await db.query.CustomerTable.findFirst();
   console.log(firstCustomer);
