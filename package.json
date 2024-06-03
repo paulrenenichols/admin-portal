@@ -12,7 +12,9 @@
   "scripts": {
     "start": "docker compose -f docker-compose.dev.yaml up -d",
     "start:rebuild": "docker compose -f docker-compose.dev.yaml up --build",
+    "start:watch": "docker compose -f docker-compose.dev.watch.yaml up",
     "stop": "docker compose -f docker-compose.dev.yaml down",
+    "stop:watch": "docker compose -f docker-compose.dev.watch.yaml down",
     "server:build": "yarn workspace server run build",
     "server:dev": "DATABASE_URL='postgresql://postgres:example@localhost:5432/admin-portal' yarn workspace server run start:dev",
     "server:start": "yarn workspace server run start",
@@ -22,7 +24,7 @@
     "database:seed": "yarn workspace database run seed",
     "database:clear": "yarn workspace database run clear",
     "database:init": "yarn workspace database run init",
-    "portal:dev": "yarn workspace portal run dev",
+    "portal:dev": "API_SERVER_URL='http://localhost:3000' yarn workspace portal run dev",
     "format": "yarn prettier . --write"
   },
   "devDependencies": {
