@@ -24,14 +24,25 @@ Run `corepack enable`, then you should be ready.
 
 ## Running Admin Portal
 
-### Installation
+### Install and Running the App
 
 Once you've cloned the repository and installed all of the above tools, you can set up and run the project.
 
 Open up a terminal, and go to the project directory. Then run these steps:
 
-1. `yarn install` (_to install packages_)
-2. `yarn start` (_to build docker images and boot up the app_)
+#### Installation
+
+Running `yarn install` will download and install the dependencies.
+
+#### Running
+
+`yarn start` will build docker images and boot up the application.
+
+Then visit [http://localhost:5173/customer/](http://localhost:5173/customer/) to view the application.
+
+#### Stopping
+
+`yarn stop` will stop the docker containers and shut down the application.
 
 ### Using the application
 
