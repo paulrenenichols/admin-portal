@@ -30,8 +30,8 @@ Once you've cloned the repository and installed all of the above tools, you can 
 
 Open up a terminal, and go to the project directory. Then run these steps:
 
-1. `yarn install` (*to install packages*)
-2. `yarn start`	(*to build docker images and boot up the app*)
+1. `yarn install` (_to install packages_)
+2. `yarn start` (_to build docker images and boot up the app_)
 
 ### Using the application
 
@@ -57,4 +57,4 @@ When you have the application up and running you can see the customer list by vi
 
 When you click on a `View` button in the customer list, you will see the customer detail view:
 
-<img src="https://github.com/paulrenenichols/admin-portal/blob/main/readme/customer-detail-view"/>
+<img src="https://github.com/paulrenenichols/admin-portal/blob/main/readme/customer-detail-view.png"/>
