@@ -2894,6 +2894,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^20.14.0":
+  version: 20.14.0
+  resolution: "@types/node@npm:20.14.0"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 10c0/29ccc7592e9ca6b81d00f3a6673241d08e9042d801b10adfd9ebcbbf326208e0a0133a8d146158db18d02a68b85d9ce1fd94e6e1e5be0da263129bf6e42eb22d
+  languageName: node
+  linkType: hard
+
 "@types/pg@npm:^8.11.6":
   version: 8.11.6
   resolution: "@types/pg@npm:8.11.6"
@@ -10384,6 +10393,7 @@ __metadata:
     "@remix-run/react": "npm:^2.9.2"
     "@remix-run/serve": "npm:^2.9.2"
     "@types/lodash.debounce": "npm:^4"
+    "@types/node": "npm:^20.14.0"
     "@types/react": "npm:^18.2.20"
     "@types/react-dom": "npm:^18.2.7"
     "@typescript-eslint/eslint-plugin": "npm:^6.7.4"
